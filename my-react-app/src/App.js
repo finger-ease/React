@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ListPage from "./ListPage";
+import CreatePage from "./CreatePage";
+import EditPage from "./EditPage";
+import DeletePage from "./DeletePage";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <h1>TODO APP</h1>
+      <Switch>
+        <Route exact path="/" component={ListPage}></Route>
+        <Route exact path="/create" component={CreatePage}></Route>
+        <Route exact path="/edit/:id" component={EditPage}></Route>
+        <Route exact path="/delete/:id" component={DeletePage}></Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
-
 export default App;
